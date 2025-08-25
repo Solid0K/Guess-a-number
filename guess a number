@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.Random;
+public class Main {
+    public static void main(String[] args){
+        Random random=new Random();
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("GUESS THE NUMBER");
+        int ans;
+        int min=1;
+        int max=20;
+        int attempt=1;
+        int ranNum=random.nextInt(min,max+1);
+        System.out.print("Guess the right number between 1-20:");
+        ans=scanner.nextInt();
+        while(ans!=ranNum){
+            if(ans>ranNum){
+                System.out.println("TOO HIGH");
+                System.out.print("Guess the right number between 1-20:");
+                ans=scanner.nextInt();
+            }
+            else if(ans<ranNum){
+                System.out.println("TOO LOW");
+                System.out.print("Guess the right number between 1-20:");
+                ans=scanner.nextInt();
+            }
+            attempt++;
+        }
+        System.out.println("RIGHT ANSWER!!!!");
+        System.out.printf("Number of attempts:%d",attempt);
+        scanner.close();
+    }
+}
